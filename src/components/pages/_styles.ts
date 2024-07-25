@@ -19,6 +19,23 @@ const NavWrapper = styled.div`
     }
 `
 
+const ImgWrapper = styled.div`
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px
+`
+
+const ModelWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px
+`
+
 export const S = {
-    NavWrapper
+    NavWrapper,
+    ImgWrapper,
+    ModelWrapper
 }
