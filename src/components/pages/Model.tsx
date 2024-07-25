@@ -1,11 +1,14 @@
-import {adidasArr} from "./Adidas";
 import {useParams} from "react-router-dom";
 import {S} from "./_styles"
+import {ModelItem} from "../../data/data";
 
-export const Model = () => {
+type ModelProps = {
+    models: ModelItem[]
+}
+
+export const Model = ({models}:ModelProps) => {
     const params = useParams();
-    const currentModel = adidasArr.find(item => item.id === Number(params.id));
-    console.log(currentModel);
+    const currentModel = models.find(item => item.id === Number(params.id));
 
     return (
         <S.ModelWrapper>

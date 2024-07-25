@@ -7,6 +7,7 @@ import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import {S} from '../src/components/pages/_styles';
 import {Model} from "./components/pages/Model";
+import {abibasArr, adidasArr, pumaArr} from "./data/data";
 
 export const PATH = {
     INITPATH:'/',
@@ -29,15 +30,15 @@ function App() {
                 <div className={styles.content}>
                     <Routes>
                         <Route path={PATH.INITPATH} element={<Navigate to={'/page1'}/>}/>
-                        <Route path={PATH.PAGE1} element={<Adidas/>}>
-                            {/*<Route path={':id'} element={<Model/>}/>*/}
-                        </Route>
+                        <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Abibas/>}/>
 
                         <Route path={'/error404'} element={<Error404/>}/>
                         <Route path={'/*'} element={<Navigate to={'/error404'}/>} />
-                        <Route path={'/adidas/:id'} element={<Model/>}/>
+                        <Route path={'/adidas/:id'} element={<Model models={adidasArr}/>}/>
+                        <Route path={'/puma/:id'} element={<Model models={pumaArr}/>}/>
+                        <Route path={'/abibas/:id'} element={<Model models={abibasArr}/>}/>
                     </Routes>
 
                 </div>
