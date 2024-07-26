@@ -6,16 +6,21 @@ type ModelProps = {
     models: ModelItem[]
 }
 
-export const Model = ({models}:ModelProps) => {
+export const Model = ({models}: ModelProps) => {
     const params = useParams();
     const currentModel = models.find(item => item.id === Number(params.id));
 
     return (
         <S.ModelWrapper>
-            <div>{currentModel?.collection}</div>
-            <div>{currentModel?.model}</div>
-            <div><img width={500} height={500} src={currentModel?.picture}/></div>
-            <div>{currentModel?.price}</div>
+            {currentModel ? (
+                <>
+                    <div>{currentModel?.collection}</div>
+                    <div>{currentModel?.model}</div>
+                    <div><img width={500} height={500} src={currentModel?.picture}/></div>
+                    <div>{currentModel?.price}</div>
+                </>
+            ) : <h2>No such model exists</h2>
+            }
         </S.ModelWrapper>
     )
 }

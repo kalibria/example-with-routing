@@ -11,10 +11,13 @@ import {abibasArr, adidasArr, pumaArr} from "./data/data";
 
 export const PATH = {
     INITPATH:'/',
-    PAGE1: '/adidas',
-    PAGE2:'/puma',
-    PAGE3:'/abibas',
-    // MODEL:'/model'
+    ADIDAS: '/adidas',
+    PUMA:'/puma',
+    ABIBAS:'/abibas',
+    // MODEL:'/model',
+    ADIDAS_MODEL: '/adidas/:id',
+    PUMA_MODEL: '/puma/:id',
+    ABIBAS_MODEL: '/abibas/:id'
 } as const
 
 function App() {
@@ -23,22 +26,24 @@ function App() {
             <div className={styles.header}><h1>HEADER</h1></div>
             <div className={styles.body}>
                 <div className={styles.nav}>
-                    <S.NavWrapper><NavLink to={PATH.PAGE1}>Adidas</NavLink></S.NavWrapper>
-                    <S.NavWrapper><NavLink to={PATH.PAGE2}>Puma</NavLink></S.NavWrapper>
-                    <S.NavWrapper><NavLink to={PATH.PAGE3}>Abibas</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.ADIDAS}>Adidas</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.PUMA}>Puma</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.ABIBAS}>Abibas</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Routes>
-                        <Route path={PATH.INITPATH} element={<Navigate to={'/page1'}/>}/>
-                        <Route path={PATH.PAGE1} element={<Adidas/>}/>
-                        <Route path={PATH.PAGE2} element={<Puma/>}/>
-                        <Route path={PATH.PAGE3} element={<Abibas/>}/>
+                        <Route path={PATH.INITPATH} element={<Navigate to={PATH.ADIDAS}/>}/>
+                        <Route path={PATH.ADIDAS} element={<Adidas/>}/>
+                        <Route path={PATH.PUMA} element={<Puma/>}/>
+                        <Route path={PATH.ABIBAS} element={<Abibas/>}/>
 
                         <Route path={'/error404'} element={<Error404/>}/>
                         <Route path={'/*'} element={<Navigate to={'/error404'}/>} />
-                        <Route path={'/adidas/:id'} element={<Model models={adidasArr}/>}/>
-                        <Route path={'/puma/:id'} element={<Model models={pumaArr}/>}/>
-                        <Route path={'/abibas/:id'} element={<Model models={abibasArr}/>}/>
+
+                        <Route path={PATH.ADIDAS_MODEL} element={<Model models={adidasArr}/>}/>
+
+                        <Route path={PATH.PUMA_MODEL} element={<Model models={pumaArr}/>}/>
+                        <Route path={PATH.ABIBAS_MODEL} element={<Model models={abibasArr}/>}/>
                     </Routes>
 
                 </div>
