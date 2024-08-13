@@ -8,16 +8,17 @@ import {Error404} from "./components/pages/Error404";
 import {S} from '../src/components/pages/_styles';
 import {Model} from "./components/pages/Model";
 import {abibasArr, adidasArr, pumaArr} from "./data/data";
+import {Prices} from "./components/pages/Prices";
 
 export const PATH = {
     INITPATH:'/',
     ADIDAS: '/adidas',
     PUMA:'/puma',
     ABIBAS:'/abibas',
-    // MODEL:'/model',
     ADIDAS_MODEL: '/adidas/:id',
     PUMA_MODEL: '/puma/:id',
-    ABIBAS_MODEL: '/abibas/:id'
+    ABIBAS_MODEL: '/abibas/:id',
+    PRICES: '/prices'
 } as const
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.ADIDAS}>Adidas</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PUMA}>Puma</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.ABIBAS}>Abibas</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.PRICES}>Prices</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Routes>
@@ -44,6 +46,7 @@ function App() {
 
                         <Route path={PATH.PUMA_MODEL} element={<Model models={pumaArr}/>}/>
                         <Route path={PATH.ABIBAS_MODEL} element={<Model models={abibasArr}/>}/>
+                        <Route path={PATH.PRICES} element={<Prices/>}/>
                     </Routes>
 
                 </div>
