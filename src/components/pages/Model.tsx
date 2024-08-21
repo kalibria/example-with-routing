@@ -1,13 +1,21 @@
-import {useParams} from "react-router-dom";
+import {useParams, useLoaderData} from "react-router-dom";
 import {S} from "./_styles"
 import {ModelItem} from "../../data/data";
+
 
 type ModelProps = {
     models: ModelItem[]
 }
 
-export const Model = ({models}: ModelProps) => {
+interface LoaderData {
+    models: ModelItem[];
+}
+
+export const Model = () => {
+    const {models} = useLoaderData() as LoaderData;
+    console.log("models", models)
     const params = useParams();
+    console.log("params", params)
     const currentModel = models.find(item => item.id === Number(params.id));
 
     return (

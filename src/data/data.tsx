@@ -92,3 +92,12 @@ export const pumaArr: ModelItem[] = [
         picture: pumaModel3
     }
 ]
+
+type ModelsType = {
+    [key: string]: ModelItem[]
+}
+export const modelsData: ModelsType = {
+    adidas: adidasArr,
+    abibas: abibasArr,
+    puma:pumaArr
+};

@@ -18,7 +18,8 @@ export const PATH = {
     ADIDAS_MODEL: '/adidas/:id',
     PUMA_MODEL: '/puma/:id',
     ABIBAS_MODEL: '/abibas/:id',
-    PRICES: '/prices'
+    PRICES: '/prices',
+    MODEL: '/:model/:id'
 } as const
 
 function App() {
