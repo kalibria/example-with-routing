@@ -19,7 +19,9 @@ export const PATH = {
     PUMA_MODEL: '/puma/:id',
     ABIBAS_MODEL: '/abibas/:id',
     PRICES: '/prices',
-    MODEL: '/:model/:id'
+    MODEL: '/:model/:id',
+    PROTECTED_PAGE: '/protected-page',
+    ERROR404: '/error404'
 } as const
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PUMA}>Puma</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.ABIBAS}>Abibas</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PRICES}>Prices</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.PROTECTED_PAGE}>Protected Page</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Outlet/>

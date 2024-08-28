@@ -14,24 +14,25 @@ import {Puma} from "../components/pages/Puma";
 import {Abibas} from "../components/pages/Abibas";
 import {Prices} from "../components/pages/Prices";
 import {Model} from "../components/pages/Model";
-import { modelsData} from "../data/data";
+import {modelsData} from "../data/data";
+import {ProtectedPage} from "../components/pages/ProtectedPage";
+import {ProtectedRoute} from "./ProtectedRoute";
 
 
-
-const modelLoader: LoaderFunction  = ({params}) => {
+const modelLoader: LoaderFunction = ({params}) => {
     console.log('paramsLoader', params)
     const modelId = params.id;
     const nameModel = params.model;
 
     if (!modelId || !nameModel) {
-        throw new Response("Not Found", { status: 404 });
+        throw new Response("Not Found", {status: 404});
     }
 
     // Now TypeScript knows modelId is defined and valid
     const models = modelsData[nameModel];
     console.log("models", models)
 
-    return { models };
+    return {models};
 };
 
 export const router = createBrowserRouter([
@@ -60,6 +61,16 @@ export const router = createBrowserRouter([
                 path: PATH.MODEL,
                 element: <Model/>,
                 loader: modelLoader,
+            },
+            {
+                path: PATH.PROTECTED_PAGE,
+                element: <ProtectedRoute>
+                    <ProtectedPage/>
+                </ProtectedRoute>
+            },
+            {
+                path: PATH.ERROR404,
+                element: <Error404/>,
             }
         ]
     },
