@@ -8,7 +8,7 @@ export const ProtectedRoute = ({children}: ProtectedProps) => {
     const logged = false
     return (
         <>
-            {logged ? children : <Navigate to={'/error'}/>}
+            {logged ? children : <Navigate to={'/login'}/>}
         </>
 
     )

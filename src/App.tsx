@@ -9,20 +9,9 @@ import {S} from '../src/components/pages/_styles';
 import {Model} from "./components/pages/Model";
 import {abibasArr, adidasArr, pumaArr} from "./data/data";
 import {Prices} from "./components/pages/Prices";
+import {PATH} from "./routes/route";
 
-export const PATH = {
-    INITPATH:'/',
-    ADIDAS: '/adidas',
-    PUMA:'/puma',
-    ABIBAS:'/abibas',
-    ADIDAS_MODEL: '/adidas/:id',
-    PUMA_MODEL: '/puma/:id',
-    ABIBAS_MODEL: '/abibas/:id',
-    PRICES: '/prices',
-    MODEL: '/:model/:id',
-    PROTECTED_PAGE: '/protected-page',
-    ERROR404: '/error404'
-} as const
+
 
 function App() {
     return (
