@@ -3,7 +3,7 @@ import styles from "./components/Site.module.css";
 import {Adidas} from "./components/pages/Adidas";
 import {Puma} from "./components/pages/Puma";
 import {Abibas} from "./components/pages/Abibas";
-import {Link, Navigate, NavLink, Outlet, Route, Routes} from 'react-router-dom';
+import {Link, Navigate, NavLink, Outlet, Route, Routes, useNavigate} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import {S} from '../src/components/pages/_styles';
 import {Model} from "./components/pages/Model";
@@ -13,6 +13,10 @@ import {PATH} from "./routes/route";
 
 
 function App() {
+    const navigate = useNavigate();
+    const navigateHandler = ()=>{
+        navigate(-1)
+    }
     return (
         <div>
             <div className={styles.header}><h1>HEADER</h1></div>
@@ -26,8 +30,9 @@ function App() {
                 </div>
                 <div className={styles.content}>
                     <div className={styles.HorizontalNavigation}>
-                        <NavLink to={PATH.ADIDAS} className={styles.LinkLikeButton}>Main Page</NavLink>
+                        <Link to={PATH.ADIDAS} className={styles.LinkLikeButton}>Main Page</Link>
                     </div>
+                    <button onClick={navigateHandler} className={styles.ButtonLikeLink}>Back</button>
                     <Outlet/>
                     {/*<Routes>*/}
                     {/*    <Route path={PATH.INITPATH} element={<Navigate to={PATH.ADIDAS}/>}/>*/}
