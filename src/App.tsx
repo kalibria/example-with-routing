@@ -3,14 +3,13 @@ import styles from "./components/Site.module.css";
 import {Adidas} from "./components/pages/Adidas";
 import {Puma} from "./components/pages/Puma";
 import {Abibas} from "./components/pages/Abibas";
-import {Navigate, NavLink, Outlet, Route, Routes} from 'react-router-dom';
+import {Link, Navigate, NavLink, Outlet, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import {S} from '../src/components/pages/_styles';
 import {Model} from "./components/pages/Model";
 import {abibasArr, adidasArr, pumaArr} from "./data/data";
 import {Prices} from "./components/pages/Prices";
 import {PATH} from "./routes/route";
-
 
 
 function App() {
@@ -26,6 +25,9 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PROTECTED_PAGE}>Protected Page</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
+                    <div className={styles.HorizontalNavigation}>
+                        <NavLink to={PATH.ADIDAS} className={styles.LinkLikeButton}>Main Page</NavLink>
+                    </div>
                     <Outlet/>
                     {/*<Routes>*/}
                     {/*    <Route path={PATH.INITPATH} element={<Navigate to={PATH.ADIDAS}/>}/>*/}
@@ -49,7 +51,6 @@ function App() {
         </div>
     );
 }
-
 
 
 export default App;
